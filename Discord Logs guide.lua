@@ -54,7 +54,7 @@ end
             
             local citizenId = Player.PlayerData.citizenid or 'N/A'
             local serverId = tostring(src)  
-            local profileLink = steamProfile ~= 'N/A' and ('[Click Here To View](' .. steamProfile .. ')') or 'N/A'
+            local profileLink = steamProfile ~= 'N/A' and steamName ~= 'N/A' and ('[' .. steamName .. '](' .. steamProfile .. ')') or (steamName ~= 'N/A' and steamName or 'N/A')
 
             local embed = {
                 title = "......",
@@ -64,14 +64,12 @@ end
                     { name = "Player Name", value=playerName, inline=true},
                     { name = 'CitizenID', value = citizenId, inline = true },
                     { name = 'Job', value = jobLabel, inline = true },
-                    { name = 'Discord Name', value = discordName, inline = true },
                     { name = 'Discord ID', value = discordId, inline = true },
-                    { name = 'Steam Name', value = steamName, inline = true },
+                    { name = 'Discord Name', value = discordName, inline = true },
                     { name = 'Steam ID', value = steamId, inline = true },
                     { name = 'Steam Profile', value = profileLink, inline = false },
                     
                     -- Any other discord logs to be added between Steam Profile and Coordinates !!!
-                    { name = 'Reward', value = '$ ' .. tostring(payout), inline = true },
 
                     { name = 'Coordinates', value = coords, inline = true }
                 },
